@@ -1,22 +1,31 @@
 "use strict";
 
-/**
- * Function to format a number to Rupiah currency
- * @param {number} number amount of money in integer
- */
+function formatCurrency(
+  number,
+  options = {}
+) {
+  const {
+    prefix = "Rp",
+    delimiter = ".",
+    useSuffix = true,
+    customSuffix = ',00',
+  } = options;
 
-function formatCurrency(number) {
   let tempNum = String(number)
     .split("")
     .reverse();
+
   let rupiah = "";
 
   for (let i = 0; i < tempNum.length; i++) {
     if ((i + 1) % 3 === 0 && i !== tempNum.length - 1) {
-      tempNum[i] = `.${tempNum[i]}`;
+      tempNum[i] = `${delimiter}${tempNum[i]}`;
     }
   }
-  rupiah = `Rp${tempNum.reverse().join("")},00`;
+
+  const suffix = useSuffix ? customSuffix : '';
+
+  rupiah = `${prefix}${tempNum.reverse().join("")}${suffix}`;
   return rupiah;
 }
 
