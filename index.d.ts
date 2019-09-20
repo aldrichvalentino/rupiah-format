@@ -1,8 +1,8 @@
 interface FormatOptions {
-  prefix: string;
-  delimiter: string;
-  useSuffix: boolean;
-  customSuffix: string;
+  prefix?: string;
+  delimiter?: string;
+  useSuffix?: boolean;
+  customSuffix?: string;
 }
 
 /**
@@ -21,7 +21,7 @@ interface FormatOptions {
  */
 declare function index(
   number: number,
-  options: FormatOptions
+  options?: FormatOptions
 ): string;
 
 export = index;
