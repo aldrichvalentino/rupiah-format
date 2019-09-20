@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This library will convert standart numbers format into indonesian rupiah format
+Converts standard numbers into Indonesian rupiah format
 
 ## Installation
 
@@ -12,20 +12,20 @@ npm install
 
 ```
 //require library
-const convertRupiah = require('rupiah-format')
+const formatCurrency = require('rupiah-format')
 
 //convert number
 let number = 1000000
-let rupiah = convertRupiah.convert(number)
+let rupiah = formatCurrency(number)
 
 console.log(rupiah)
-
+// Rp1.000.000,00
 ```
 
 ## Tests
 
 ```
-node test
+npm test
 ```
 
 ## License

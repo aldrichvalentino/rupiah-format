@@ -4,7 +4,8 @@
   "description": "Change normal number to rupiah format",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "lint": "prettier --write **/*.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,8 @@
     "node": ">=6.0.0"
   },
   "devDependencies": {
-    "mocha": "^3.1.2"
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2"
   },
   "dependencies": {
     "chai": "^3.5.0"

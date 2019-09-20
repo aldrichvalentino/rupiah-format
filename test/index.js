@@ -1,11 +1,12 @@
-const convertRupiah = require('../index')
+const formatCurrency = require("../index");
+const assert = require("assert");
 
-console.log(convertRupiah.convert(123))
-console.log(convertRupiah.convert(12345))
-console.log(convertRupiah.convert(123456))
-console.log(convertRupiah.convert(1234567))
-
-let number = 1000000
-let rupiah = convertRupiah.convert(number)
-
-console.log(rupiah)
+describe("Format Currency Test", () => {
+  it("should format currency", done => {
+    assert.equal(formatCurrency(123), "Rp123,00");
+    assert.equal(formatCurrency(12345), "Rp12.345,00");
+    assert.equal(formatCurrency(123456), "Rp123.456,00");
+    assert.equal(formatCurrency(1234567), "Rp1.234.567,00");
+    done();
+  });
+});
