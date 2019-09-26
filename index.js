@@ -1,14 +1,11 @@
 "use strict";
 
-function formatCurrency(
-  number,
-  options = {}
-) {
+function formatCurrency(number, options = {}) {
   const {
     prefix = "Rp",
     delimiter = ".",
     useSuffix = true,
-    customSuffix = ',00',
+    customSuffix = ",00"
   } = options;
 
   let tempNum = String(number)
@@ -23,12 +20,20 @@ function formatCurrency(
     }
   }
 
-  const suffix = useSuffix ? customSuffix : '';
+  const suffix = useSuffix ? customSuffix : "";
 
   rupiah = `${prefix}${tempNum.reverse().join("")}${suffix}`;
   return rupiah;
 }
 
+function createInstance(defaultOptions = {}) {
+  return function(number) {
+    return formatCurrency(number, defaultOptions);
+  };
+}
+
 module.exports = formatCurrency;
+
+module.exports.create = createInstance;
 
 module.exports.default = formatCurrency;

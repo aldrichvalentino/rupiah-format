@@ -1,4 +1,5 @@
 const formatCurrency = require("../index");
+const { create } = require("../index");
 const assert = require("assert");
 
 describe("Format Currency Test", () => {
@@ -68,6 +69,29 @@ describe("Format Currency Test", () => {
       }),
       "Rp 450.000,-"
     );
+    done();
+  });
+});
+
+describe("Create Instance test", () => {
+  it("should create instance", done => {
+    const formatter = create({});
+    assert.notEqual(formatter, null);
+    done();
+  });
+
+  it("should format with the given options", done => {
+    const formatter = create({
+      delimiter: "/",
+      prefix: "Te"
+    });
+    assert.equal(formatter(5000), "Te5/000,00");
+    done();
+  });
+
+  it("should format with default options", done => {
+    const formatter = create();
+    assert.equal(formatter(15000), "Rp15.000,00");
     done();
   });
 });
