@@ -9,6 +9,7 @@ interface FormatOptions {
  * Function to format a number to Rupiah currency
  * @param number Amount of money in `integer`
  * @param options Formatter options
+ * @returns the currency formatted string
  *
  * prefix: `string`, defaults to `Rp`
  *
@@ -23,6 +24,10 @@ declare function index(number: number, options?: FormatOptions): string;
 
 declare namespace index {
   interface FormatFunction {
+    /**
+     * @param number Amount of money in `integer`
+     * @returns the currency formatted string
+     */
     (number: number): string;
   }
 
@@ -33,3 +38,5 @@ declare namespace index {
    */
   function create(defaultOptions: FormatOptions): FormatFunction;
 }
+
+export = index;
